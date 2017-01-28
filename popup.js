@@ -1,8 +1,12 @@
-
+document.getElementById('Cleanse').addEventListener("click", gatherOptions);
 
 //Gather string
 function gatherOptions() {
-    chrome.storage.sync.get('prohibited', nextFunction(obj) );
+    
+    document.getElementById("status").innerHTML =  document.getElementById('prohibited').value;
+    alert("test");
+    //console.log(prohibited);
+    //document.getElementById('Cleanse').innerHTML = "ttt";
 }
 
 function testOutput(obj){

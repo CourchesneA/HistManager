@@ -1,1 +1,6 @@
 # HistoryManager
+
+Set up : 
+
+
+

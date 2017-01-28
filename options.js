@@ -1,10 +1,8 @@
 // Saves options to chrome.storage
 function save_options() {
-  var color = document.getElementById('color').value;
-  var likesColor = document.getElementById('like').checked;
+  var prohib = document.getElementById('prohibited').value;
   chrome.storage.sync.set({
-    favoriteColor: color,
-    likesColor: likesColor
+    prohibited: prohib
   }, function() {
     // Update status to let user know options were saved.
     var status = document.getElementById('status');

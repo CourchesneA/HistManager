@@ -2,27 +2,40 @@ document.getElementById('Cleanse').addEventListener("click", gatherOptions);
 
 //Gather string
 function gatherOptions() {
-    
-    document.getElementById("status").innerHTML =  document.getElementById('prohibited').value;
-    alert("test");
-    //console.log(prohibited);
-    //document.getElementById('Cleanse').innerHTML = "ttt";
+    console.log("gatherOption fct");
+    //document.getElementById("status").innerHTML =  document.getElementById('prohibited').value;
+    //alert("test");
+    console.log(prohibited);
+    var input = document.getElementById('prohibited').value;
+    gatherURLlist(input);
 }
-
-function testOutput(obj){
-    message(obj);
-    console.log(obj);
-}
-
-
 
 //Gather URL list
 
-
-//parse list
-
+function gatherURLlist(query){
+    console.log("gatherURL fct");
+    //var list = chrome.history.search(query, displayList(obj));
+    //for testing purpose
+   /* chrome.history.search({text: query, maxResults: 100}, function(data) {
+            data.forEach(function(page) {
+                        console.log(page.url);
+                            });
+    });*/
+    
+    chrome.history.search({text: query, maxResults: 100},deleteUrls);
+}
 
 //Delete entries
+
+function deleteUrls(urls) {
+
+    console.log("deleteUrls function");
+    urls.forEach(function(page){
+        chrome.history.deleteUrl({url:page.url});
+        console.log("Successfully deleted: "+page.url);
+    });
+
+}
 
 
 //Display log

@@ -10,4 +10,6 @@ The History Manager extension is made for you ! It will prevent any website rela
 * Find and remove any linked related to the chosen field, leave everything else where it is
 * Able to generate a random history based on websites that will make you look pure
 
+![Sample Display](Pictures/ExtensionDisplay.png)
+
 

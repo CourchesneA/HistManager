@@ -1,32 +1,28 @@
+window.onload = function() {
+	document.getElementById('save22').addEventListener('click',save_options);
+	restore_options();
+};
+
 // Saves options to chrome.storage
 function save_options() {
   var prohib = document.getElementById('prohibited').value;
-  chrome.storage.sync.set({
-    prohibited: prohib
-  }, function() {
+  chrome.storage.sync.set({prohibited: prohib }, function() {
     // Update status to let user know options were saved.
-    var status = document.getElementById('status');
-    status.textContent = 'Options saved.';
-    setTimeout(function() {
-      status.textContent = '';
-    }, 750);
+    document.getElementById('status').innerHTML = 'Options saved.';
   });
 }
 
-// Restores select box and checkbox state using the preferences
+// Restores textbox state using the preferences
 // stored in chrome.storage.
-/*
+
 function restore_options() {
-  // Use default value color = 'red' and likesColor = true.
+	console.log("Params loaded");
   chrome.storage.sync.get({
-    favoriteColor: 'red',
-    likesColor: true
+    prohibited: ""
   }, function(items) {
-    document.getElementById('color').value = items.favoriteColor;
-    document.getElementById('like').checked = items.likesColor;
+    document.getElementById('prohibited').value = items.prohibited;
   });
 }
-*/
-//document.addEventListener('DOMContentLoaded', restore_options);
-document.getElementById('save').addEventListener('click',
-    save_options);
+
+
+

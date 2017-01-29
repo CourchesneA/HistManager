@@ -5,9 +5,13 @@ function gatherOptions() {
     console.log("gatherOption fct");
     //document.getElementById("status").innerHTML =  document.getElementById('prohibited').value;
     //alert("test");
-    console.log(prohibited);
-    var input = document.getElementById('prohibited').value;
-    gatherURLlist(input);
+    chrome.storage.sync.get({
+        prohibited: ""
+    }, function(items){
+        gatherURLlist(items.prohibited);
+        console.log(items.prohibited);
+    });
+    //var input = document.getElementById('prohibited').value;
 }
 
 //Gather URL list

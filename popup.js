@@ -1,4 +1,8 @@
-document.getElementById('Cleanse').addEventListener("click", gatherOptions);
+window.onload = function() {
+
+    document.getElementById('Cleanse').addEventListener("click", gatherOptions);
+    document.getElementById('settings').addEventListener("click",function(){chrome.runtime.openOptionsPage()});
+}
 
 //Gather string
 function gatherOptions() {

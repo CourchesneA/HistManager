@@ -38,11 +38,13 @@ function gatherURLlist(query){
 function deleteUrls(urls) {
 
     console.log("deleteUrls function");
+    var entrycount = urls.length;
     urls.forEach(function(page){
         chrome.history.deleteUrl({url:page.url});
         console.log("Successfully deleted: "+page.url);
     });
 
+    document.getElementById('status').innerHTML="Successfully deleted "+entrycount+" History entries";
 }
 
 
